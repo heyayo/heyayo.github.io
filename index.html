@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title> Web Graphics </title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<!-- Title Piece -->
+    <div class="section">
+        <h1> Graphics Rendering </h1>
+    </div>
+
+    <div id="info-slides" class="flex-row section">
+        <div class="info-panel">
+            <h2> Introduction </h2>
+            <p> Hello! </p>
+            <p> This panel will contain information </p>
+            <p> The section below contains a window visualizing the information displayed here if possible. </p>
+            <p> Otherwise it is free for you to mess around with using the control panels on the left. </p>
+            <p> To continue to the next panel, you can use the arrows right below between the two bigger sections </p>
+        </div>
+        <div class="info-panel">
+            <h2> Render Methods </h2>
+            <p> The first option you can choose that affects this info panel here are the render methods </p>
+            <p> The Render Method is how the visual window below will be drawn. </p>
+            <p> Using either a slow and hacky per pixel draw method made of tons of HTML/CSS Grid Cells or by using a proper drawing method like WebGL or WebGPU </p>
+            <p> What's the difference? </p>
+        </div>
+        <div class="info-panel">
+            <h2> HTML/CSS Grids </h2>
+            <p> This isn't a real method of drawing things to the screen, no one should ever do this for any real project. This method is slow, inefficient and for the developer, requires a lot more work. </p>
+        </div>
+        <div class="info-panel">
+            <div class="flex-row">
+                <div class="flex-column">
+                    <h2> WebGL </h2>
+                    <p> This method is similar to OpenGL, a Graphics API used to draw things to a real application window instead of a HTML Canvas. </p>
+                    <p> It handles many things from turning a set of points into real shapes to handling the transfer of data between the computer and Graphics Card. </p>
+                </div>
+                <img src="assets/webgl.svg" alt="WebGL Logo" class="panel-logo">
+                <div class="need-a-question-mark-on-the-right-side-of-the-screen-marker-class"> api </div>
+            </div>
+        </div>
+        <div class="info-panel">
+            <div class="flex-row">
+                <div class="flex-column">
+                    <h2> WebGPU </h2>
+                    <p> This method is similar to Vulkan, which to OpenGL is the modern alternative but not replacement. </p>
+                    <p> Vulkan and subsequently WebGPU is another Graphics API but provides more control to the developer instead of automatically handling features. </p>
+                    <p> Upsides to more control is that the developer can choose not to activate all features, increasing performance </p>
+                    <p> Downsides is that there is more to program and develop </p>
+                </div>
+                <img src="assets/webgpu.svg" alt="WebGPU Logo" class="panel-logo">
+                <div class="need-a-question-mark-on-the-right-side-of-the-screen-marker-class"> vulkan </div>
+            </div>
+        </div>
+        <div class="info-panel">
+            <h2> Graphics Cards </h2>
+            <p> For any of the prior two Graphics APIs to work, you will need a compatible graphics processor </p>
+            <p> Modern Computers will have a portion of their computing power dedicated to graphics either as a separate card or integrated into the CPU </p>
+            <p> If you can see things on a monitor, chances are you have a functional graphics processor </p>
+        </div>
+        <div class="info-panel">
+            <h2> Browser Feature Sets </h2>
+            <p> Having modern computer only guarantees you to be able to run the non-web counterparts of the Graphics APIs </p>
+            <p> You will also need a browser that supports the said Graphics APIs </p>
+        </div>
+        <div class="info-panel">
+            <h2> Vertices </h2>
+            <p> Vertices present a point in space, multiple vertices joined together will form a shape. </p>
+            <p> Models will usually have hundreds of Vertices. </p>
+        </div>
+        <div class="info-panel">
+            <h2> Matrices </h2>
+            <p> Vertices of a model usually have fixed positions. Static models aren't very exciting though. To move models you will need to move the vertices. </p>
+            <p> Translating is pretty simple. However, when rotating and scaling, things get pretty complicated. </p>
+            <p> Matrices let us hold all these transforms in one variable. </p>
+        </div>
+        <div class="info-panel">
+            <h2> Model Matrix </h2>
+            <p> The model matrix manipulates the model into their positions, rotations and scale </p>
+        </div>
+        <div class="info-panel">
+            <h2> Projection Matrix </h2>
+            <p> The projection matrix manipulates vertices such that when they are rendered, it can appear as if it has Perspective shifts or in the case of orthogonal, to allow for the Camera shifts. </p>
+        </div>
+        <div class="info-panel">
+            <h2> View Matrix </h2>
+            <p> The view matrix represents the virtual camera that the GPU will render through. Combined with the perspective matrix, we can simulate a Camera in our virtual world. </p>
+        </div>
+        <div class="info-panel">
+            <h2> MVP Matrix </h2>
+            <p> The MVP matrix combined the Model/View/Projection Matrices into one matrix, it lets us calculate the final point of the vertices. </p>
+            <div class="need-a-question-mark-on-the-right-side-of-the-screen-marker-class"> mvp </div>
+        </div>
+    </div>
+
+    <div id="info-side-tab">
+        <button id="info-side-tab-puller" type="button"> ? </button>
+        <div id="info-side-tab-content-holder">
+            <div class="info-side-tab-content">
+                <div class="need-a-question-mark-on-the-right-side-of-the-screen-marker-class"> api </div>
+                <h2> API Stands For Application Programming Interface </h2>
+                <p> An API lets one program interact with another. </p>
+                <p> In this case, it is our program interacting with our GPU </p>
+            </div>
+            <div class="info-side-tab-content">
+                <div class="need-a-question-mark-on-the-right-side-of-the-screen-marker-class"> vulkan </div>
+                <h2> Khronos Group </h2>
+                <p> Vulkan, like OpenGL and subsequently WebGL and WebGPU is managed under the Khronos Group </p>
+                <p> The Khronos Group is a non-profit organisation that maintains and develops global standards </p>
+            </div>
+            <div class="info-side-tab-content">
+                <div class="need-a-question-mark-on-the-right-side-of-the-screen-marker-class"> mvp </div>
+                <h2> MVP Matrix </h2>
+                <p> MVP Stands for Model View Projection </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide Control Panel -->
+    <div class="flex-row section">
+        <button id="left-slide" class="circle-button"> < </button>
+
+        <!-- Render Information -->
+        <div class="flex-column side-panel">
+            <div class="flex-row">
+                Frame Time: &nbsp; <span id="frame-time"></span> &nbsp; ms
+            </div>
+            <div class="flex-row">
+                <button id="open-transforms" class="circle-button">V</button>
+            </div>
+        </div>
+
+        <button id="right-slide" class="circle-button"> > </button>
+    </div>
+
+    <div class="flex-row section side-panel" id="model-control-panel">
+        <label for="transform"> Transform </label>
+        <select id="transform">
+            <option value="1"> Translation </option>
+            <option value="2"> Rotation </option>
+            <option value="3"> Scale </option>
+        </select>
+        <div class="flex-column">
+            X
+            <button id="x-up" class="circle-button" type="button">+</button>
+            <button id="x-down" class="circle-button" type="button">-</button>
+        </div>
+        <div class="flex-column">
+            Y
+            <button id="y-up" class="circle-button" type="button">+</button>
+            <button id="y-down" class="circle-button" type="button">-</button>
+        </div>
+        <div class="flex-column">
+            Z
+            <button id="z-up" class="circle-button" type="button">+</button>
+            <button id="z-down" class="circle-button" type="button">-</button>
+        </div>
+        <div class="flex-column">
+            Speed
+            <button id="speed-up" class="circle-button" type="button">+</button>
+            <button id="speed-down" class="circle-button" type="button">-</button>
+        </div>
+        <div class="flex-column">
+            <h2>Speed: <span id="speed-number"></span></h2>
+        </div>
+    </div>
+
+    <div class="flex-row section">
+        <!-- Render Target Windows -->
+        <!--<div id="grid-window" class="window"></div> NOT USED ANYMORE-->
+        <canvas id="webgl-window" class="window"></canvas>
+        <!-- Render Target Windows -->
+    </div>
+<script src="main.js"></script>
+</body>
+</html>
